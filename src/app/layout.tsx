@@ -17,12 +17,12 @@ export function generateMetadata(): Metadata {
   try {
     const resume = getResumeData();
     return {
-      title: `AI CV Query | ${resume.name}`,
+      title: `Resume Assistant | ${resume.name}`,
       description: `Ask questions about ${resume.name}'s resume and job history.`,
     };
   } catch {
     return {
-      title: "AI CV Query",
+      title: "Resume Assistant",
       description: "Ask questions about a resume and job history.",
     };
   }

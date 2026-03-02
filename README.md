@@ -1,5 +1,5 @@
-# AI Resume Query
-Welcome to the AI Resume Query project. This project is based on a substack project from Nate B Jones and a conversation with Emma Dennis. Nate's project used loveable and I just couldn't bring myself to spend more money on yet another "vibe code it with AI" serivce, and I already pay for cursor. So what is this? This project is a combination of Artificial Intelegence and Meat Sack Intelegence working in partnership to bring you a full-stack containerized Next.js app that answers natural-language questions about a resume and job history. Responses are grounded in structured resume data with optional bullet-story context. 
+# AI Resume Agent
+Welcome to the AI Resume Agent project. This project is based on a substack project from Nate B Jones and a conversation with Emma Dennis. Nate's project used loveable and I just couldn't bring myself to spend more money on yet another "vibe code it with AI" serivce, and I already pay for cursor. So what is this? This project is a combination of Artificial Intelegence and Meat Sack Intelegence working in partnership to bring you a full-stack containerized Next.js app that answers natural-language questions about a resume and job history. Responses are grounded in structured resume data with optional bullet-story context. 
 
 ## Features
 - Chat UI with message history, typing indicator, and suggested questions

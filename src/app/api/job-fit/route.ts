@@ -80,7 +80,7 @@ export async function POST(request: NextRequest) {
       "1) Overall fit: 2-3 sentences.",
       "2) Pros: bullet list.",
       "3) Gaps: bullet list.",
-      "4) Skills matrix: HTML table with columns",
+      "4) Skills matrix: markdown table with columns",
       "Skill | Requirement evidence | Resume alignment | Resume evidence | Notes.",
       "If the job description is long, focus on the 12 most critical skills.",
     ].join(" ");

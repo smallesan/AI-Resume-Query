@@ -1,149 +1,227 @@
 {
-  "name": "John Doe",
-  "title": "DevOps & Site Reliability Engineering Leader",
+  "name": "Santosh Mallesan",
+  "title": "Technology Leader innovating with AI/ML; Startups; 33 patents",
   "contact": {
-    "email": "donotreply@gmail.com",
-    "phone": "123-456-7890"
+    "email": "santosh.mallesan@gmail.com",
+    "phone": "703-597-9121",
+    "location": "Fairfax, VA 22032"
   },
-  "summary": "I lead organizations in scaling DevOps and Site Reliability Engineering practices by embedding reliability, automation, and sound systems architecture into engineering culture improving delivery velocity, service quality, and sustainable work-life balance.",
+  "summary": "Technology Executive and Verizon Fellow specializing in the commercialization of Applied Research (GenAI, LLM, Computer Vision). Holder of 33 patents and veteran of a $40M startup exit, with a career defined by scaling global software engineering teams (80+) and delivering web-scale architectures for Fortune 500 environments. Expert at bridging the 'valley of death' between R&D/Applied Research and high-revenue commercial products.",
+  "strengths": [
+    {
+      "topic": "AI and Cloud Innovation",
+      "text": "Deep expertise in GenAI, LLMs, Computer Vision, and multimodal systems, applying these technologies to Web Scale platforms and Mobile architectures."
+    },
+    {
+      "topic": "Executive Leadership",
+      "text": "Proven ability to build and manage global cross-functional teams of 80+ (US & India), overseeing budgets and large-scale software releases."
+    },
+    {
+      "topic": "Startup Success and M&A",
+      "text": "Instrumental in scaling a startup from ground zero to $40M in sales, culminating in a successful acquisition."
+    },
+    {
+      "topic": "Intellectual Property Strategy",
+      "text": "Prolific inventor with 33 granted patents, adept at identifying patentable IP to create product differentiation and increase corporate value."
+    },
+    {
+      "topic": "Product Lifecycle Management",
+      "text": "Expert in delivering products from inception to maturity (SaaS, Mobile, Cloud), bridging the gap between applied research and commercial deployment."
+    },
+    {
+      "topic": "Domain Versatility",
+      "text": "Delivered solutions across diverse sectors including Telecom, Industry 4.0, HealthAI, Robotics, AR/VR, EdTech, and Public Safety."
+    }
+  ],
   "suggestedQuestions": [
-    "What is John's experience with DevOps leadership?",
-    "Which tools has John used for CI/CD and release automation?",
-    "What measurable outcomes has John delivered?",
-    "What AI or ML work has John done recently?",
-    "What projects has John worked on?"
+    "Describe Santosh's AI and Cloud experience",
+    "Can Santosh manage a team of engineers?",
+    "What measurable outcomes has Santosh delivered?",
+    "What AI or ML work has Santosh done recently?",
+    "Tell me about Santosh's startup and M&A experience",
+    "What is Santosh's intellectual property and patent history?"
   ],
   "experience": [
     {
-      "company": "Random Company llc",
-      "role": "Technical Consultant",
-      "start": "2024-05",
+      "company": "Stealth Startup",
+      "role": "Founding Engineer",
+      "start": "01/2026",
       "end": "Present",
+      "summary": "Currently working on a startup idea, of a personal AI agent that acts as a life coach and assists with digital detox. The agent is designed to provide personalized coaching and support to help users achieve their goals and improve their overall well-being. I am developing the prototype of the AI agent that can be used for startup fund raising and market validation.",
       "bullets": [
         {
-          "id": "lb-vision-ai-rag",
-          "text": "Developed AI-enabled applications (Swift, Python) leveraging Apple Vision, on-device RAG, and automation for route planning, geospatial tracking, and natural-language querying of technical manuals.",
-          "story": "I built several AI-enabled apps in Swift. One lets you pick photos from your library and generates a GPS route by ordering them chronologically and mapping the geotag trail. Another handles fuel tracking and route planning. We needed a custom mapping overlay on top of Apple Maps because it does not natively support RV-height routing, so I built the overlay and routing logic, with bridge and tunnel data, after a trip where I realized most bridges on the East Coast were too low for my RV."
-        },
-        {
-          "id": "lb-dashcam-route-mapper",
-          "text": "Lead maintainer of open-source Dashcam-Route-Mapper application, managing contributions and feature development for geospatial data processing and route visualization.",
-          "story": "I built a tool to visualize GPS telemetry from Dashcam time-lapse videos. I used Apple Vision to extract the embedded GPS data, then fed it into Dashcam-Route-Mapper for route visualization. I also used Apple Vision to OCR technical manuals and pipe the extracted text into Dashcam-Route-Mapper for searchable, mapped references."
-        },
-        {
-          "id": "lb-brand-growth",
-          "text": "Developed a brand with 26,000+ monthly viewers and 6,500+ subscribers.",
-          "story": "I launched a YouTube channel and scripted, filmed, edited, and published 180+ videos documenting the full transformation of a surplus military vehicle into an overland RV. The channel grew to 26,000+ monthly viewers and more than 60,000 hours of watch time."
+          "id": "stealth-startup-aiagent",
+          "text": "Currently working on a startup idea, of a personal AI agent that acts as a life coach and assists with digital detox. The agent is designed to provide personalized coaching and support to help users achieve their goals and improve their overall well-being. I am developing the prototype of the AI agent that can be used for startup fund raising and market validation.",
+          "story": "I am developing a personal AI agent platform (on AWS Kubernetes) that acts as a life coach and assists with digital detox. The architecture uses LangChain to orchestrate multiple sub-agents, including a custom-built digital wellbeing assessment engine, a goal-setting module, a daily activities tracker, and a language normalizer. The LLM choice is user-specific and can be switched between four leading LLM providers."
         }
       ]
     },
     {
-      "company": "HealthCompanyX",
-      "role": "Engineering Manager",
-      "start": "2021-04",
-      "end": "2024-05",
+      "company": "Verizon",
+      "role": "Associate Fellow, Applied Research",
+      "start": "08/2019",
+      "end": "12/2025",
+      "summary": "I directed strategy for Verizon's innovation portfolio, bridging Product Management and Product Engineering to transition applied research into creating minimum viable products.",
       "bullets": [
         {
-          "id": "HealthCompanyX-devsecops-lead",
-          "text": "Led an enterprise DevSecOps team of 6 FTEs plus 0-15 offshore engineers and contractors (scaled to project demand) responsible for CI/CD pipeline tooling, build frameworks, release automation, and infrastructure delivery across 800+ in-house and COTS applications.",
-          "story": "I managed the Enterprise Delivery Services team at HealthCompanyX. Our core U.S.-based team of six delivered DevSecOps tooling, CI/CD standards, and platform guidance to the broader engineering org. We scaled the team with offshore engineers and contractors based on project demand."
+          "id": "enterprise-ml-architecture",
+          "text": "Unlocked a $15B market opportunity by architecting and implementing Verizon's UAV connectivity platform; engineered a hybrid CPU/GPU backend for sub-second flight path optimization at scale, while enabling customers to meet the most recent FAA regulations on BvLOS flights.",
+          "story": "New FAA regulations for BVLoS (Beyond Visual Line of Sight) opened a new market opportunity for UAV  (drones, etc) cellular connectivity. UAV communication over cellular connectivty has a line-of-sight interference problem that does not exist in normal terrestrial cellular communication. I led the architecture and implementation of a ML algorithm that utlizes Verizon's proprietary data to predict connection quality along a flight path, and Verizon's UAV connectivity platform, which included a hybrid CPU/GPU backend for flight path optimization. I managed a cross-functional team of 5 engineers for implementation and collaborated with 3 different internal organizations to securely access the sensitive data. This platform enabled customers to meet FAA regulations for BvLOS flights and unlocked a $15B market opportunity for Verizon in the UAV space. I deployed the solution in an OpenShift environment, conforming with the existing MLOps CI/CD pipelines and security protocols for the Verizon product cloud (Artifactory, Jenkins, Blackduck, SonarQube and Twistlock)."
         },
         {
-          "id": "HealthCompanyX-copilot-governance",
-          "text": "Launched GitHub Copilot enterprise-wide and established AI governance frameworks by partnering with Legal, Security, and Engineering; enabling secure AI adoption while ensuring compliance.",
-          "story": "This is one I'm particularly proud of. GitHub Copilot was the first AI tool launched at HealthCompanyX, so there were no existing policies to guide its use. I led a cross-functional effort with Legal, Security, and Engineering to establish AI governance, define legal and security controls, and pilot Copilot with a small developer group. After validation, we rolled it out enterprise-wide and tracked adoption through access requests and per-developer usage metrics."
+          "id": "llm-product-initiative",
+          "text": "Led the engineering of a B2C RAG-LLM platform. Built a secure, scalable architecture capable of ingesting and querying private data for tens of millions of customers.",
+          "story": "I led the architecture and engineering of a B2C RAG-LLM platform that can securely ingest and query private data for tens of millions of verizon customers and be utlized for multiple RAG use cases. Working with a team of engineers, I designed the LLM inference architecture based on vLLM and the RAG platform was multi-tenant for different uses cases and supported choices of vector databases and LLMs. The architecture utlized MCP to retrive chunks from appropiate vector databases. The RAG architecture was designed with a multi-agent approach, with specialized agents for planning, data extraction, use case specific guardrails and human-in-the-loop capabilities all orchestrated through LangGraph framework. The guard rails were implemented using NeMo for user inputs, retrieval chunks and output. I deployed the solution in an OpenShift environment, conforming with the existing MLOps CI/CD pipelines and security protocols for the Verizon product cloud (Artifactory, Jenkins, Blackduck, SonarQube and Twistlock).\nI collaborated closely with product management to define the product requirements and worked with the security team to ensure compliance with data privacy regulations. This initiative resulted in an internal platform that can be used for multiple RAG use cases across the company, and has the potential to generate significant revenue by enabling personalized AI experiences for Verizon customers."
         },
         {
-          "id": "HealthCompanyX-metrics-savings",
-          "text": "Built a data gathering and metrics tracking solution (PowerShell, Azure Monitor, TSQL, Power BI) to drive data-informed decisions, resulting in $2M hardware cost savings and $1M annual licensing reduction.",
-          "story": "I built data-gathering pipelines and metrics dashboards for several applications at HealthCompanyX. The data revealed true cost versus business value, which let us reduce IBM UrbanCode Deploy licensing, shift most Visual Studio Enterprise seats to Professional, and retire two security products, saving over $1M annually. We also consolidated dedicated hardware, avoiding about $2M in refresh costs."
+          "id": "industry-4-innovation",
+          "text": "Spearheaded the R&D strategy for complex robotic operations in large-scale factories. Solved a previously unsolved domain challenge by designing algorithms that normalize indoor location data across diverse robot fleets, predicting path congestion and connectivity anomalies."
         },
         {
-          "id": "HealthCompanyX-sdlc-wiki",
-          "text": "Authored a System Development Life-Cycle (SDLC) framework, refining all company policies, procedures, and requirements into an interactive Wiki that provides our development community, management, and auditors a guide in how to design, deliver, operate, and retire a service inside of HealthCompanyX’s regulated healthcare space. Streamlining development and reducing audit times from months to days.",
-          "story": "An audit showed we needed a system development life cycle above the software development lifecycle. I created a System Development Life Cycle for HealthCompanyX's regulated healthcare environment. We pulled together legislative frameworks (HIPAA, HITRUST, SOC 2), internal policies, procedures, and requirements that were scattered across repos and orgs, mapped the artifacts in a value-stream style flow, and documented what was required for audit readiness by data type. We then built a wiki that guides teams through how to design, develop, deliver, operate, and retire services in a regulated environment."
+          "id": "healthcare-ai",
+          "text": "Pioneered a multi-modal 'Aging-in-Place' platform integrating Brain-Computer Interfaces (BCI) and robotic sensors (RGBD, IR, Acoustic), utilizing Differential Privacy and Edge-encryption to ensure HIPAA-level security. Led a team of 15, including researchers from a leading university, and designed custom deep learning models for detecting activities of daily living."
+        },
+        {
+          "id": "ar-vr-infrastructure",
+          "text": "Standardized the XR Service Architecture across the enterprise, reducing application time-to-market by 40% through reusable MEC-optimized (Mobile Edge Compute) modules."
+        },
+        {
+          "id": "computer-vision-strategy",
+          "text": "Led a cross-functional initiative to unify Verizon's computer vision efforts. Designed an API-driven, framework-agnostic inferencing engine, successfully validating the architecture on AWS and demonstrating scalable cloud inference infrastructure."
+        },
+        {
+          "id": "public-safety-technology",
+          "text": "Secured 2 patents for novel ML algorithms that utilize smartphone sensors to determine variable floor heights, solving a critical vertical location accuracy challenge for emergency responders. Validated the solution through demonstrations at key industry forums."
+        },
+        {
+          "id": "thought-leadership-verizon",
+          "text": "Presented at The Web Conference 2020 (Computer Vision for IoT) and Tech Pulse 2020 (AI Inference Platform). Actively advised four startup cohorts in Verizon's 'Forward For Good' accelerator on Computer Vision, MEC and 5G product roadmaps. Won internal hackathons two years in a row."
         }
       ]
     },
     {
-      "company": "HealthCompanyX",
-      "role": "Senior Engineer",
-      "start": "2008-03",
-      "end": "2021-04",
+      "company": "Verizon",
+      "role": "Distinguished Engineer, Emerging Tech",
+      "start": "06/2013",
+      "end": "08/2019",
+      "summary": "Evangelized AI adoption within Verizon products, identifying key use cases for AI/ML application and created initial prototypes for the product engineering groups to build upon. Collaborating with Verizon's Executive Briefing Centers (EBC), presented Verizon technology advancements to key customer executives.",
       "bullets": [
         {
-          "id": "HealthCompanyX-autobuild",
-          "text": "Designed an in-house Configuration As Code abstraction layer named AutoBuild (PowerShell, C#) that obfuscates delivery toolchain complexity, reducing developer onboarding training time by 3 months.",
-          "story": "You can think of AutoBuild as Terraform for full-stack application orchestration. It lets developers define an application with a set of INI files, and automation uses those files plus repo structure to build, test, and release through dev, test, acceptance, and production. That let developers focus on application code instead of delivery tooling complexity. During a federal audit, I was told they had never seen a process this clear, and it reduced audit timelines from months to days."
+          "id": "revenue-retention-ai",
+          "text": "Designed and deployed ML models for the VZ Cloud product to predict user churn risk, directly informing retention strategies."
         },
         {
-          "id": "HealthCompanyX-unified-delivery-platform",
-          "text": "Led 5-person team that built a unified delivery platform consolidating 15 separate teams maintaining 35+ deployment tools, enabling reallocation of 22 staff members (from 27 to 5) through automation and self-service tooling. Final delivery tool set included Azure DevOps, IBM DevOps Deploy, JFrog Artifactory, JFrog XRay, SonarQube, and AutoBuild.",
-          "story": "This was one of the highest-impact projects I've worked on. Before the project, we had 15 delivery teams, each coordinating with the Application and Environment Services (AES) team. Every team hosted its own delivery toolchain, and AES coordinated releases to each environment. The process was full of bottlenecks and often forced developers to request admin access to fix deployments, which led to manual changes that never made it into production. We assembled a cross-team group to stabilize the environments and built a unified delivery platform that consolidated tooling, process, and administration into a centrally managed automated pipeline. We trained developers and delegated platform access directly to teams. By limiting admin access and enabling self-service pipelines, we stabilized environments, increased deployment frequency from once per week to dozens per day, and freed 22 staff members to focus on development instead of release support."
+          "id": "cost-reduction-cv",
+          "text": "Realized $2M in annual OPEX savings by replacing manual network site selection with a Computer Vision-driven automation engine using satellite and street-view imagery. Pioneered unique algorithms for image stitching and object height detections."
         },
         {
-          "id": "HealthCompanyX-hybrid-delivery",
-          "text": "Enabled developers to self-service full-stack delivery to on-premises (VMware, physical hardware), cloud native (Azure), hybrid, and managed container services (AKS, Kubernetes).",
-          "story": "The Enterprise Delivery Services team stood up HealthCompanyX's initial cloud presence. We built an automated delivery pipeline that deployed infrastructure and applications across on-prem, cloud, and hybrid environments. This capability was later migrated to a dedicated cloud team."
+          "id": "smart-cities",
+          "text": "Engineered accessibility solutions that utilize satellite and street imagery to identify parking spots and curb cuts for handicap driving route services."
         },
         {
-          "id": "HealthCompanyX-aks-k8s",
-          "text": "Managed Kubernetes deployments across AKS clusters, including container orchestration, namespace design, Helm chart development, and deployment automation integrated into CI/CD pipelines.",
-          "story": "I partnered with the Data Hub team to automate Kubernetes deployments across AKS. We created Helm chart standards and CI/CD pipelines to deploy and manage workloads consistently across clusters. This work was later transitioned to a dedicated cloud team."
+          "id": "strategic-partnerships-target",
+          "text": "Secured a Statement of Work (SOW) with Target after winning an exclusive hackathon. Presented the resulting Computer Vision smart-cart solution directly to Target's Board of Directors."
         },
         {
-          "id": "HealthCompanyX-upgrade-automation",
-          "text": "Automated the core facets upgrade frameworks, reducing application deployment times by 40%.",
-          "story": "The core claims processing platform, Facets, is a monolithic system with layered sub-applications. Each layer had to be upgraded in a strict sequence to prevent data corruption. Upgrades ran twice a year and required 5 to 10 people working three to four days around the clock. After one upgrade where I started at 7am Thursday and left Monday at 2pm, I spent the next five months automating every possible step with validation and load testing. The next upgrade finished in about 2.5 days for the core system, and the remaining application upgrades completed in 12 hours. TriZetto later asked for my scripts to use with other Blue plans."
+          "id": "next-gen-video",
+          "text": "Architected a Deep Learning computer vision solution to deliver real-time e-commerce experiences overlaid on linear TV and on-demand content, leading to multiple new product innovations."
         },
         {
-          "id": "HealthCompanyX-citrix-reliability",
-          "text": "Designed and implemented a Citrix environment improving uptime of the front end claims processing interface from 77.5% to 99.97% reliability.",
-          "story": "I joined the Citrix team and my first project was to design a reboot process for the Citrix servers. When I asked why we rebooted them daily, I was told they would crash otherwise. After scripting reboots, I partnered with Marty Cookson to profile the environment and identify the culprit: printer drivers loaded on the Citrix servers. We replaced them with a generic Citrix driver and routed print jobs through a centralized print server, which eliminated the daily crashes."
+          "id": "sdn-architecture",
+          "text": "Led the evaluation of CSCF implementations for micro-services applicability, authoring the southbound interface RFI and demonstrating zero-touch provisioning for edge deployment."
         }
       ]
     },
     {
-      "company": "DeathStarTelco",
-      "role": "Systems Engineer",
-      "start": "2001-01",
-      "end": "2008-03",
+      "company": "ZippSlip, Inc",
+      "role": "Chief Architect",
+      "start": "09/2011",
+      "end": "06/2013",
       "bullets": [
         {
-          "id": "DeathStarTelco-windows-migration",
-          "text": "Maintained Unix, Windows, and Citrix infrastructure for the national network operations center.",
-          "story": "I was hired to recover a stalled migration of the Network Operations Center from Solaris to Windows. By the time I arrived, the UNIX admins had devolved to sneaker-netting updates from one PC to another. I discovered the migration was driven solely by a Windows-only monitoring tool; the rest of the NOC stack and thousands of switches were UNIX. I paused the project, worked with the TCAM vendor in Israel to host the monitoring app on Citrix, migrated the NOC back to Solaris workstations, and then maintained the Windows/Citrix footprint required for the tool along with the Solaris desktops."
+          "id": "zippslip-saas-architecture",
+          "text": "Architected the flagship K12 communications platform using a .NET/SQL stack, replacing manual paper workflows for schools nationwide. Designed the cloud-native infrastructure on Amazon EC2, including a robust disaster recovery strategy to ensure business continuity."
         },
         {
-          "id": "DeathStarTelco-backup-noc",
-          "text": "I built the backup network operations center in Redmond Washington.",
-          "story": "After stabilizing the National Network Operations Center in Bothell, I joined the team to build a backup NOC. This coincided with DeathStarTelco acquiring Some other Wireless company, whose Redmond NOC had been stripped during a fire-sale liquidation. Our team rebuilt the facility end to end: workstations, desks, CAT-5 runs, and we installed an intermediate distribution frame with Cisco 5505 switches, built a video display wall for live alert streaming, created a custom Crestron controller for 16 projectors with multiple video inputs, rebuilt the UPS battery bank, and coordinated the generator installation."
+          "id": "zippslip-mobile-strategy",
+          "text": "Delivered native iOS and Android applications and a mobile-optimized web experience, significantly increasing parent engagement rates by 320%."
+        },
+        {
+          "id": "zippslip-social-network",
+          "text": "Led an offshore team of 10 engineers in building a secure, compliant social networking engine for the school community. Features included SIS integration via SAML, granular privacy controls, and secure media sharing."
         }
       ]
     },
     {
-      "company": "ContractCompanyX",
-      "role": "Contractor / Desktop Administrator",
-      "start": "1999-01",
-      "end": "2001-01",
+      "company": "MobileCon LLC",
+      "role": "Chief Technology Officer",
+      "start": "05/2011",
+      "end": "03/2013",
       "bullets": [
         {
-          "id": "government-systems-administrator",
-          "text": "Maintained desktop infrastructure for the government lab.",
-          "story": "I maintained desktop infrastructure for Government Lab and held a Department of fubar security clearance."
+          "id": "mobilecon-startup-cofounder",
+          "text": "Established all cloud-based technical operations for a mobile marketing startup."
+        },
+        {
+          "id": "mobilecon-fintech",
+          "text": "Engineered and deployed an SMS-based micropayment solution, handling secure transaction processing and gateway integrations, increasing micropayments by 500%."
         }
       ]
     },
     {
-      "company": "MyCompanyX",
-      "role": "Partner / Field Service Technician",
-      "start": "1997-12",
-      "end": "2001-01",
+      "company": "ArX Mobile",
+      "role": "Senior Vice President, Product Development",
+      "start": "10/2010",
+      "end": "05/2011",
       "bullets": [
         {
-          "id": "mgg-field-service-technician",
-          "text": "Maintained Windows desktop, server, and novell netware infrastructure for 60 small business across the state of New Mexico.",
-          "story": "While chatting on a BBS with friends about how hard it was to find IT help for a small mortgage company, we decided to start our own business. After months of door-to-door sales and word-of-mouth referrals, five of us had signed 60 small-business clients across New Mexico. The business grew quickly, and we eventually accepted a buyout."
+          "id": "arx-engineering-leadership",
+          "text": "Directed software development and product operations for a SaaS-based mobile marketing platform."
+        },
+        {
+          "id": "arx-platform-modernization",
+          "text": "Led the engineering group in re-architecting the LAMP-based hosted solution to a SaaS model, while including deep social media integration (Facebook/Twitter APIs) and advanced analytics dashboards. This re-architecture resulted in 10x OPEX cost reduction."
+        },
+        {
+          "id": "arx-professional-services",
+          "text": "Led the professional services division in delivering custom mobile web solutions and iOS applications for enterprise clients, utilizing device-detection logic for optimized content delivery."
+        }
+      ]
+    },
+    {
+      "company": "Genband (formerly NexTone)",
+      "role": "Senior Director, Software Engineering",
+      "start": "05/1999",
+      "end": "10/2010",
+      "summary": "As an early employee in this startup, rapidly grew from Senior Software Engineer to Senior Director. Scaled a global engineering organization from 0 to 80+ across the US and India, overseeing the technology integration for a successful corporate merger. Managed complete software development and delivery lifecycle, while also contributing to sales and marketing efforts.",
+      "bullets": [
+        {
+          "id": "genband-global-team",
+          "text": "Managed a cross-functional engineering and QA organization of 80 members across three locations (two US sites, one India). Successfully integrated a new US engineering team following a corporate merger."
+        },
+        {
+          "id": "genband-product-delivery",
+          "text": "Directed the release cycles for critical telecom infrastructure products including Session Border Controllers (SBC) and Realtime Session Managers (RSM). Oversaw development of products in multiple tech stacks (embedded Linux, J2EE, Big Data)."
+        },
+        {
+          "id": "genband-cost-reduction",
+          "text": "Orchestrated the transition of major development activities to offshore teams in India, optimizing budget allocation while maintaining delivery velocity."
+        },
+        {
+          "id": "genband-agile-transformation",
+          "text": "Spearheaded the adoption of Agile/Scrum methodologies and continuous test automation. This process overhaul improved productivity and boosted product reliability to 99.999% (5-9s) within 8 months. Designed engineering processes that successfully passed internal TL9000 audits."
+        },
+        {
+          "id": "genband-reliability-engineering",
+          "text": "Established a new engineering discipline to address architectural debt, directly achieving carrier-grade (5-9s) reliability. Led high-impact architectural changes while sustaining product development schedules for 400+ customers. Led the Systems Integration Team to redefine testing methodologies, emphasizing automated load and stress testing for high-volume customer deployments."
+        },
+        {
+          "id": "genband-security-strategy",
+          "text": "Chaired the Product Security Council. Conducted security audits and defined strategies for DoS mitigation and Intrusion Detection/Prevention (IDS/IDP)."
+        },
+        {
+          "id": "genband-strategic-planning",
+          "text": "Served within the Office of the CTO to conduct technology assessments and define the company's long-term architectural direction. Founding member of the Intellectual Property Committee, leading over 15 patent filings."
         }
       ]
     }
@@ -152,150 +230,85 @@
     {
       "category": "Machine Learning and Artificial Intelligence",
       "items": [
-        {
-          "year": 2025,
-          "name": "Deep Learning"
-        },
-        {
-          "year": 2025,
-          "name": "Neural Networks and Deep Learning"
-        },
-        {
-          "year": 2025,
-          "name": "Convolutional Neural Networks"
-        },
-        {
-          "year": 2025,
-          "name": "Sequence Models"
-        },
-        {
-          "year": 2025,
-          "name": "Structuring Machine Learning Projects"
-        },
-        {
-          "year": 2025,
-          "name": "Hyperparameter Tuning, Regularization and Optimization"
-        }
       ]
     },
     {
       "category": "Cloud Services",
       "items": [
-        {
-          "year": 2022,
-          "name": "Microsoft Azure AZ900"
-        },
-        {
-          "year": 2025,
-          "name": "Amazon Web Services Cloud Practitioner CLF-C02"
-        }
       ]
     },
     {
       "category": "Management",
       "items": [
-        {
-          "year": 2016,
-          "name": "Agile Certified Scrum Master"
-        },
-        {
-          "year": 2016,
-          "name": "Agile Certified Product Owner"
-        }
       ]
     }
   ],
   "skills": {
-    "development_automation": {
-      "languages": [
-        "PowerShell",
-        "C#",
-        "Python",
-        "TSQL",
-        "Java",
-        "Swift"
-      ],
-      "ci_cd": [
-        "Azure DevOps",
-        "IBM DevOps Deploy",
-        "GitHub Actions"
-      ],
-      "infrastructure_as_code": [
-        "Terraform",
-        "ARM Templates",
-        "Bicep"
-      ],
-      "code_quality": [
-        "SonarQube",
-        "Static code analysis"
-      ],
-      "vulnerability_management": [
-        "JFrog Xray"
-      ]
-    },
-    "container_registry": [
-      "JFrog Artifactory",
-      "Prisma",
-      "Prisma Cloud",
+    "ai_ml_strategy": [
+      "Agentic workflows",
+      "GenAI",
+      "Large Language Models (LLM)",
+      "Retrieval Augmented Generation (RAG)",
+      "LangChain",
+      "Computer Vision",
+      "Super Resolution",
+      "Deep Learning models",
+      "Statistical ML"
+    ],
+    "cloud_scale": [
+      "Kubernetes",
       "Docker",
-      "Containerd",
-      "Kubernetes"
+      "AWS stack",
+      "Mobile Edge Compute (MEC)",
+      "OpenShift",
+      "Minio",
+      "Kafka",
+      "Pulsar",
+      "Cassandra",
+      "MongoDB",
+      "Vector databases"
     ],
-    "data_analytics": [
-      "Power BI",
-      "Azure Monitor",
-      "Dynatrace",
-      "Splunk",
-      "TSQL",
-      "Data pipeline development",
-      "Metrics-driven decision making"
-    ],
-    "ai_ml": [
-      "Deep Learning & Neural Networks",
-      "Convolutional Neural Networks (CNN)",
-      "On-device Reference Augmented Generation (RAG)",
-      "Natural Language Processing (NLP)",
-      "AI Governance & Compliance Frameworks"
-    ],
-    "operating_systems": [
-      "Windows Server (NT 4.0 - 2022)",
-      "Linux (RHEL, SUSE, Debian, Ubuntu, Fedora)",
-      "UNIX (SUN Solaris, System V)",
-      "macOS (Monterey - Sequoia)"
+    "software": [
+      "AI-Native Development (Vibe-coding, Claude Code, GitHub Copilot)",
+      "Python",
+      "Swift",
+      "Java",
+      "C++",
+      "C#",
+      "JavaScript/NodeJS",
+      "Scala",
+      "Objective-C",
+      "PyTorch",
+      "TensorFlow",
+      "Keras",
+      "MySQL",
+      "Postgres",
+      "SQL",
+      ".NET"
     ]
   },
   "failures": [
     {
       "id": "My most impactful failure",
-      "summary": "Part of my mission is to automate toil. In the pursuit of end-to-end self-service, self-documenting, and self-healing automation, I built a toolchain that made 22 friends and colleagues redundant. The company needed a quick win and laid off those team members.",
-      "lesson": "My end goal has not changed, but I learned to be more aware of the bigger picture and the long-term impact of my actions. I now fully include the people who will be affected and help them train for a transition to a new role."
+      "summary": "TODO",
+      "lesson": "TODO"
     }
   ],
   "education": [
     {
-      "institution": "Hometown High School",
-      "location": "Hometown, USA",
-      "degree": "High School Diploma",
-      "year": "1992"
+      "institution": "Purdue University",
+      "location": "West Lafayette, IN",
+      "degree": "Master of Science (M.S.), Electrical and Computer Engineering",
+      "year": ""
     },
     {
-      "institution": "Random State University",
-      "location": "Collage town, USA",
-      "degree": "Bachelor of Science in Computer Science",
-      "year": "1997"
+      "institution": "Madurai Kamaraj University",
+      "location": "India",
+      "degree": "Bachelor of Engineering (B.E.), Electronics and Communications",
+      "year": ""
     }
   ],
   "projects": [
-    {
-      "name": "TODO",
-      "description": "TODO",
-      "link": "TODO"
-    },
-    {
-      "name": "TODO",
-      "description": "TODO",
-      "link": "TODO"
-    },
     {
       "name": "TODO",
       "description": "TODO",
@@ -316,22 +329,138 @@
       "details": "TODO"
     }
   ],
+  "patents": [
+    {
+      "title": "Biometric based self-sovereign information management based on reverse information search",
+      "number": "11960583",
+      "year": "2022",
+      "description": "The present teaching relates to method, system, medium, and implementations for authenticating a user. A first request is received to set up authentication information with respect to a user, wherein the first request specifies a type of information to be used for future authentication of the user. It is determined whether the type of information related to the user poses risks based on a reverse information search result. The type of information for being used for future authentication of the user is rejected when the type of information is determined to pose risks."
+    },
+    {
+      "title": "Systems and methods for secure authentication based on machine learning techniques",
+      "number": "11488022",
+      "year": "2021",
+      "description": "A system described herein may provide a technique for the use of machine learning techniques to perform authentication, such as biometrics-based user authentication. For example, user biometric information (e.g., facial features, fingerprints, voice, etc.) of a user may be used to train a machine learning model, in addition to a noise vector. A representation of the biometric information may be iteratively transformed until the transformed biometric information matches the noise vector, and the machine learning model may be trained based on the set of transformations that ultimately yield the noise vector, when given the biometric information."
+    },
+    {
+      "title": "Systems and methods for low latency cloud computing for mobile applications",
+      "number": "11818576",
+      "year": "2021",
+      "description": "A device may receive, from a user equipment (UE), a request to allocate one or more computing resources for an application executing on the UE. The device may be associated with an edge node of a mobile network and the UE may be within a coverage area associated with the edge node. The device may receive a remote execution file package that is associated with code to be executed using the one or more computing resources. The device may assign the one or more computing resources for the application and cause installation or execution of the code. The device may transmit a response that provides an indication that the one or more computing resources have been allocated for the application."
+    },
+    {
+      "title": "Biometric based self-sovereign information management",
+      "number": "10860874",
+      "year": "2020",
+      "description": "The present teaching relates to method, system, medium, and implementations for authenticating a user. An authentication session is first initiated to authenticate, via iris, a person claiming to be an authorized user, in which a first set of signals is randomly generated for controlling light strobing to be applied to the iris of the person for detecting liveness of the iris. A second set of signals is accordingly generated for controlling iris picture capturing synchronized with the light strobing. Whether the person is live is then determined based on the synchronized pictures acquired when the light strobing is applied."
+    },
+    {
+      "title": "Microservices architecture for cloud-scale global navigation satellite system",
+      "number": "10955557",
+      "year": "2019",
+      "description": "A system can include a producer device to receive reference data from a reference station. The system can include a queue device to store a reference message, corresponding to the reference data, in a message queue. The system can include a mapping device to store mapping information indicating that the message queue is associated with the reference station. The system can include a consumer device to identify the message queue as being associated with a microservice to be provided to a client device based on a microservice request. The consumer device can obtain the reference message from the message queue, generate corrections data associated with the client device, and provide the corrections data."
+    },
+    {
+      "title": "Systems and methods for tracking indoor location of a mobile device",
+      "number": "10848911",
+      "year": "2019",
+      "description": "A device determines, based on location verification data that has been received, that the device is indoors at a first geographic location. The device determines a base measured barometric pressure, and an initial floor that the device is located on in a structure that includes the first geographic location. The device determines an adjusted measured barometric pressure for a second geographic location based on a second measured barometric pressure and one or more reference barometric pressures. The device determines an altitude for the second geographic location and causes a server to predict a floor that the device is located on at the second geographic location."
+    },
+    {
+      "title": "User device ad-hoc distributed caching of content",
+      "number": "10382552",
+      "year": "2019",
+      "description": "A device receives a user election of participation in a distributed cache service, and receives user selection of one or more devices, that are each associated with the user, to register with the distributed cache service as participant nodes. The device determines an amount of available storage offered to the cache service and the available bandwidth of a respective network connection for each participant node. The device admits selected devices into the distributed cache service and interleaves storage of multiple chunks of content across a subset of the admitted participant nodes."
+    },
+    {
+      "title": "Object recognition based on hierarchical domain-based models",
+      "number": "10846555",
+      "year": "2018",
+      "description": "A method, a device, and a non-transitory storage medium each provide an object recognition service that identifies an object within an image or a video. An object is identified according to a general classification based on a domain-based inference model, and is subsequently further identified according to a sub-classification of the general classification based on another domain-based inference model. The domain-based inference models are hierarchical. The object recognition of the object may be used in support of end user services."
+    },
+    {
+      "title": "Blockchain micro-services framework",
+      "number": "10447770",
+      "year": "2018",
+      "description": "A network device receives a first application programming interface (API) call from an application. The first API call requests a micro-service of a blockchain-based technology. The blockchain-based technology includes use of a shared ledger among participating nodes in a distributed consensus network. The network device sends, in response to the first API call, a second API call to one of the participating nodes, initiating a framework module. The network device receives a response indicating consensus of the participating nodes and generates a reply to the first API call."
+    },
+    {
+      "title": "Native video advertising with voice-based ad management and machine-to-machine ad bidding",
+      "number": "10699296",
+      "year": "2017",
+      "description": "A method, a device, and a non-transitory storage medium provides storing user preferences pertaining to a native ad service; receiving a program that includes instances of native ad information indicative of instances of native ads; displaying the program; providing the native ad based on the user preferences; determining whether a secondary user device is paired; and transmitting instances of native ad information to the secondary user device in response to determining that the secondary user device is paired."
+    },
+    {
+      "title": "Methods and apparatus for multistage routing of packets using call templates",
+      "number": "US 8755371",
+      "year": "2014",
+      "description": "A method for multistage routing of packets using call templates is disclosed. An ingress call is filtered based on a plurality of ingress-call parameter values. A parameter value for the ingress call is modified based on a plurality of ingress-call-peer parameter values. A filtered ingress-call parameter value and at least one filtered ingress-call-peer parameter value are converted to an egress-call parameter value and an egress-call-peer parameter value, respectively. An egress call is filtered based on a plurality of egress-call parameter values."
+    },
+    {
+      "title": "Voice over IP (VoIP) network infrastructure components and method",
+      "number": "US 8743870",
+      "year": "2014",
+      "description": "A voice over Internet protocol communication system and method provides infrastructure components as intermediaries between networks, including multi-protocol session controllers and a multi-protocol signaling switch as well as a management system. The session controllers process calls at either the edge of the network or at the core of the VoIP network, associating calls with one another in call peers for incoming calls as ingress call peers and for outgoing calls as egress call peers. A centralized database of call routing policies provides cost management, topology hiding, and inter-working of calls from SIP networks to H.323 networks for both voice and video."
+    },
+    {
+      "title": "Methods and apparatus for forwarding IP calls through a proxy interface",
+      "number": "US 8547962",
+      "year": "2013",
+      "description": "A session controller configured to be coupled to a communications network is disclosed. The session controller is configured to receive an indication of a Voice over Internet Protocol (VoIP) registration request at a first time from an endpoint having a third-party registration, and to receive a signaling message from the endpoint at a second time later than the first time. The session controller is further configured to forward an indication of the VoIP registration request and a signaling message to an application server, such that at least a portion of the topology of the communications network beyond the session controller is hidden to the endpoint."
+    },
+    {
+      "title": "Prioritization within a session over internet protocol (SOIP) network",
+      "number": "US 8509218",
+      "year": "2013",
+      "description": "A method includes receiving, at a session controller, session data from a session-detail record. The session data is associated with at least a portion of a call over a Session over Internet Protocol (SoIP) network. A priority indicator associated with an Internet Protocol (IP) packet transmitted over the call is modified at the session controller based on the session data. The priority indicator indicates a priority to transmit the IP packet."
+    },
+    {
+      "title": "Voice over IP (VoIP) network infrastructure components and method",
+      "number": "US 8,194,640",
+      "year": "2012",
+      "description": "A voice over Internet protocol communication system and method provides infrastructure components as intermediaries between networks, including multi-protocol session controllers and a multi-protocol signaling switch as well as a management system. The session controllers process calls and participate in the calls that flow through it, at either the edge of the network or at the core of the VoIP network. A centralized database of call routing policies is provided to the session controllers, enabling cost management, topology hiding, and inter-working of calls from SIP networks to H.323 networks for both voice and video."
+    },
+    {
+      "title": "Methods and apparatus for controlling call admission to a network based on call peers",
+      "number": "US 8,085,758",
+      "year": "2011",
+      "description": "A session controller configured to be coupled to a database and configured to receive an indication associated with an ingress call is disclosed. The session controller is further configured to query the database for an ingress-call peer associated with the ingress call, and to query the database for a dynamic-peer-definition template associated with the ingress call when the ingress-call peer is not identified upon query of the database. The session controller is further configured to reject the ingress call when the dynamic-peer-definition template is not identified upon query of the database."
+    },
+    {
+      "title": "Method and apparatus for partitioning resources within a session-over-internet-protocol (SoIP) session controller",
+      "number": "US 7,865,612",
+      "year": "2011",
+      "description": "A method and apparatus for partitioning resources within a Session-over-Internet-Protocol (SoIP) Session Controller (SC) are described. An apparatus comprises data access logic configured to receive an instruction to define at least one virtual partition in a SoIP SC, grant a primary entity access to data associated with each virtual partition, and grant each secondary entity exclusive access to data associated with a virtual partition associated with that secondary entity. Session administration logic is configured to generate, for each SoIP session traversing a given virtual partition, a session data record uniquely associated with that given virtual partition."
+    },
+    {
+      "title": "Adaptive feedback for session over internet protocol",
+      "number": "US 7,861,003",
+      "year": "2010",
+      "description": "A method includes receiving an instruction associated with a definition of an alarm condition and modifying a session controller associated with a Session over Internet Protocol (SoIP) network based on the alarm condition. The session controller can be modified when the alarm condition, which is defined based on session data, is changed from satisfied to unsatisfied or unsatisfied to satisfied. The modifying of the session controller is associated with a set of connections that includes more than zero connections."
+    },
+    {
+      "title": "Session data records and related alarming within a session over internet protocol (SOIP) network",
+      "number": "US 7,860,990",
+      "year": "2010",
+      "description": "A method and apparatus processes session layer parameters and/or extrinsic parameters with reference to an alarm condition to determine whether a route should be modified. When the alarm condition is either satisfied or unsatisfied, the route can be modified. The session layer parameters and/or extrinsic parameters are contained in a session-data-record."
+    },
+    {
+      "title": "Methods and apparatus for predictive call admission control within a media over internet protocol network",
+      "number": "US 7,626,929",
+      "year": "2009",
+      "description": "A method includes receiving at an ingress session exchange device a call admission control (CAC) condition and a CAC value associated with an endpoint of a first egress session exchange device and CAC-related information associated with an endpoint of a second egress session exchange device. The ingress session exchange device is at a border of a session over internet protocol network. A first call admission calculation is performed to determine whether the CAC condition is satisfied, and a second call admission calculation is performed when the CAC condition is unsatisfied."
+    },
+    {
+      "title": "Methods and apparatus for routing IP media data based on cost",
+      "number": "US 8254265",
+      "year": "2006",
+      "description": "A session controller configured to receive a data packet from a packet-switched network having multiple communication links is disclosed. The disclosed session controller is further configured to define a call-routing policy based on layer-five, layer-two, layer-three and layer-seven information from the data packet. The call-routing policy is configured to define a least-cost routing (LCR) call route for an ingress call over at least one of the plurality of communication links. The session controller is also configured to associate the ingress call to an egress-call peer based on the call routing policy."
+    }
+  ],
   "links": [
     {
-      "label": "mywebsite.com",
-      "url": "https://mywebsite.com"
-    },
-    {
       "label": "LinkedIn",
-      "url": "https://www.linkedin.com/in/john-doe/"
-    },
-    {
-      "label": "GitHub",
-      "url": "https://github.com/john-doe"
-    },
-    {
-      "label": "TODO",
-      "url": "TODO"
+      "url": "https://www.linkedin.com/in/smallesan"
     }
   ]
 }

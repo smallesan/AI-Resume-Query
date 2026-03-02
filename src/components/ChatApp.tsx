@@ -2,6 +2,8 @@
 
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
+import ReactMarkdown, { type Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
 import type {
   ChatMessage,
   ChatResponse,
@@ -95,77 +97,40 @@ function limitRoles(
   );
 }
 
-type ParsedMarkdownTable = {
-  headers: string[];
-  rows: string[][];
+const markdownComponents: Components = {
+  p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+  ul: ({ children }) => <ul className="mb-2 list-disc pl-4 space-y-1">{children}</ul>,
+  ol: ({ children }) => <ol className="mb-2 list-decimal pl-4 space-y-1">{children}</ol>,
+  li: ({ children }) => <li>{children}</li>,
+  strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+  em: ({ children }) => <em className="italic">{children}</em>,
+  code: ({ children }) => (
+    <code className="rounded bg-slate-700 px-1 py-0.5 font-mono text-xs">{children}</code>
+  ),
+  pre: ({ children }) => (
+    <pre className="mb-2 overflow-x-auto rounded bg-slate-700 p-3 font-mono text-xs">{children}</pre>
+  ),
+  h1: ({ children }) => <h1 className="mb-2 text-base font-bold">{children}</h1>,
+  h2: ({ children }) => <h2 className="mb-2 text-sm font-bold">{children}</h2>,
+  h3: ({ children }) => <h3 className="mb-1 text-sm font-semibold">{children}</h3>,
+  a: ({ href, children }) => (
+    <a href={href} className="underline" target="_blank" rel="noopener noreferrer">{children}</a>
+  ),
+  table: ({ children }) => (
+    <div className="my-3 overflow-x-auto">
+      <table className="w-full border-collapse text-left text-xs text-slate-100">{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => <thead className="bg-slate-900/70 text-slate-200">{children}</thead>,
+  tbody: ({ children }) => <tbody>{children}</tbody>,
+  tr: ({ children }) => <tr>{children}</tr>,
+  th: ({ children }) => (
+    <th className="border border-slate-800 px-3 py-2 font-semibold">{children}</th>
+  ),
+  td: ({ children }) => (
+    <td className="border border-slate-800 px-3 py-2 align-top">{children}</td>
+  ),
 };
-
-type ParsedJobFitResult = {
-  before: string;
-  table: ParsedMarkdownTable | null;
-  after: string;
-};
-
-function parseMarkdownTableRow(row: string) {
-  return row
-    .trim()
-    .replace(/^\|/, "")
-    .replace(/\|$/, "")
-    .split("|")
-    .map((cell) => cell.trim());
-}
-
-function isSeparatorRow(row: string) {
-  return /^\s*\|?[-:\s|]+\|?\s*$/.test(row);
-}
-
-function parseFirstMarkdownTable(lines: string[]): {
-  startIndex: number;
-  endIndex: number;
-  table: ParsedMarkdownTable;
-} | null {
-  for (let i = 0; i < lines.length - 1; i += 1) {
-    const headerLine = lines[i];
-    const separatorLine = lines[i + 1];
-    if (!headerLine.includes("|") || !separatorLine) {
-      continue;
-    }
-    if (!isSeparatorRow(separatorLine)) {
-      continue;
-    }
-    const headers = parseMarkdownTableRow(headerLine);
-    if (headers.length < 2) {
-      continue;
-    }
-    const rows: string[][] = [];
-    let j = i + 2;
-    while (j < lines.length) {
-      const rowLine = lines[j];
-      if (!rowLine.includes("|")) {
-        break;
-      }
-      const row = parseMarkdownTableRow(rowLine);
-      if (row.every((cell) => !cell)) {
-        break;
-      }
-      rows.push(row);
-      j += 1;
-    }
-    return { startIndex: i, endIndex: j, table: { headers, rows } };
-  }
-  return null;
-}
-
-function parseJobFitResult(result: string): ParsedJobFitResult {
-  const lines = result.split(/\r?\n/);
-  const tableMatch = parseFirstMarkdownTable(lines);
-  if (!tableMatch) {
-    return { before: result, table: null, after: "" };
-  }
-  const before = lines.slice(0, tableMatch.startIndex).join("\n").trimEnd();
-  const after = lines.slice(tableMatch.endIndex).join("\n").trimStart();
-  return { before, table: tableMatch.table, after };
-}
 
 export default function ChatApp({
   experiences,
@@ -302,28 +267,86 @@ export default function ChatApp({
     return limitRoles(groupedExperiences, DEFAULT_VISIBLE_ROLES);
   }, [groupedExperiences, showAllRoles]);
 
-  const parsedJobFitResult = useMemo(() => {
-    if (!jobFitResult) {
-      return null;
-    }
-    return parseJobFitResult(jobFitResult);
-  }, [jobFitResult]);
-
-  const jobFitTable = parsedJobFitResult?.table ?? null;
-
   return (
     <div className="flex min-h-screen flex-col bg-slate-950 text-slate-100">
       <header className="border-b border-slate-800 bg-slate-950/80 px-6 py-4 backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-2">
-          <h1 className="text-2xl font-semibold">AI Resume Query</h1>
+          <h1 className="text-2xl font-semibold">Resume Agent</h1>
           <p className="text-sm text-slate-300">
-            Ask about {resumeName}'s experience and get grounded, concise responses.
+            Ask about {resumeName}&apos;s experience and get grounded, concise responses from an AI agent.
           </p>
         </div>
       </header>
 
       <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-6 py-6">
-        <section className="flex h-[420px] flex-col rounded-2xl border border-slate-800 bg-slate-900/60">
+        <section className="flex flex-col gap-4">
+          <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5">
+            <h2 className="text-lg font-semibold">Job Fit Analysis</h2>
+            <p className="mt-1 text-xs text-slate-400">
+              Paste a job description to see honest fit feedback and a skills matrix, based on my job history.
+            </p>
+            <form onSubmit={handleJobFitSubmit} className="mt-4 space-y-3">
+              <textarea
+                value={jobDescription}
+                onChange={(event) => setJobDescription(event.target.value)}
+                placeholder="Paste the full job description here..."
+                className="h-40 w-full resize-y rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-blue-400 focus:outline-none"
+                maxLength={6000}
+              />
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  type="submit"
+                  className="flex items-center gap-2 rounded-xl bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-400 disabled:opacity-70"
+                  disabled={jobFitLoading}
+                >
+                  {jobFitLoading && (
+                    <svg
+                      className="h-4 w-4 animate-spin"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                      />
+                    </svg>
+                  )}
+                  {jobFitLoading ? "Analyzing..." : "Analyze Job Fit"}
+                </button>
+                <span className="text-xs text-slate-500">
+                  {jobDescription.length}/6000
+                </span>
+              </div>
+            </form>
+            {jobFitError && (
+              <div className="mt-4 rounded-xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">
+                {jobFitError}
+              </div>
+            )}
+            {jobFitResult && (
+              <div className="mt-4 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 text-sm text-slate-100">
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                  {jobFitResult}
+                </ReactMarkdown>
+              </div>
+            )}
+          </div>
+        </section>
+
+        <section className="flex h-[480px] flex-col rounded-2xl border border-slate-800 bg-slate-900/60">
+          <div className="border-b border-slate-800 px-6 py-4">
+            <h2 className="text-lg font-semibold">Ask more about Santosh</h2>
+          </div>
           <div className="flex-1 space-y-4 overflow-y-auto px-6 py-6">
             {messages.map((message) => (
               <div
@@ -339,14 +362,25 @@ export default function ChatApp({
                       : "bg-slate-800 text-slate-100"
                   }`}
                 >
-                  {message.content}
+                  {message.role === "assistant" ? (
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                      {message.content}
+                    </ReactMarkdown>
+                  ) : (
+                    message.content
+                  )}
                 </div>
               </div>
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="rounded-2xl bg-slate-800 px-4 py-3 text-sm text-slate-200">
-                  Typing…
+                <div className="flex items-center gap-2 rounded-2xl bg-slate-800 px-4 py-3 text-sm text-slate-200">
+                  Thinking
+                  <span className="flex items-center gap-1">
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-400 [animation-delay:-0.3s]" />
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-400 [animation-delay:-0.15s]" />
+                    <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-slate-400" />
+                  </span>
                 </div>
               </div>
             )}
@@ -388,87 +422,6 @@ export default function ChatApp({
         </section>
 
         <section className="flex flex-col gap-4">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5">
-            <h2 className="text-lg font-semibold">Job Fit Analysis</h2>
-            <p className="mt-1 text-xs text-slate-400">
-              Paste a job description to see honest fit feedback and a skills matrix, based on my job history.
-            </p>
-            <form onSubmit={handleJobFitSubmit} className="mt-4 space-y-3">
-              <textarea
-                value={jobDescription}
-                onChange={(event) => setJobDescription(event.target.value)}
-                placeholder="Paste the full job description here..."
-                className="h-40 w-full resize-y rounded-xl border border-slate-700 bg-slate-900 px-4 py-3 text-sm text-slate-100 placeholder:text-slate-500 focus:border-blue-400 focus:outline-none"
-                maxLength={6000}
-              />
-              <div className="flex flex-wrap items-center gap-3">
-                <button
-                  type="submit"
-                  className="rounded-xl bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-400"
-                  disabled={jobFitLoading}
-                >
-                  {jobFitLoading ? "Analyzing..." : "Analyze Job Fit"}
-                </button>
-                <span className="text-xs text-slate-500">
-                  {jobDescription.length}/6000
-                </span>
-              </div>
-            </form>
-            {jobFitError && (
-              <div className="mt-4 rounded-xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm text-red-200">
-                {jobFitError}
-              </div>
-            )}
-            {jobFitResult && (
-              <div className="mt-4 rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 text-sm text-slate-100">
-                {parsedJobFitResult?.before && (
-                  <div className="whitespace-pre-wrap">
-                    {parsedJobFitResult.before}
-                  </div>
-                )}
-                {jobFitTable && (
-                  <div className="mt-4 overflow-x-auto">
-                    <table className="w-full border-collapse text-left text-xs text-slate-100">
-                      <thead className="bg-slate-900/70 text-slate-200">
-                        <tr>
-                          {jobFitTable.headers.map((header) => (
-                            <th
-                              key={header}
-                              className="border border-slate-800 px-3 py-2 font-semibold"
-                            >
-                              {header}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {jobFitTable.rows.map((row, rowIndex) => (
-                          <tr
-                            key={`${rowIndex}-${row.join("-")}`}
-                            className={rowIndex % 2 === 0 ? "bg-slate-950/20" : undefined}
-                          >
-                            {jobFitTable.headers.map((_, colIndex) => (
-                              <td
-                                key={`${rowIndex}-${colIndex}`}
-                                className="border border-slate-800 px-3 py-2 align-top"
-                              >
-                                {row[colIndex] ?? ""}
-                              </td>
-                            ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
-                {parsedJobFitResult?.after && (
-                  <div className="mt-4 whitespace-pre-wrap">
-                    {parsedJobFitResult.after}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
           <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
