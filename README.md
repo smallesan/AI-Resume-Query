@@ -61,65 +61,170 @@ Resume data lives in `data/<RESUME_ID>.json`. Each bullet includes an `id` and o
    ```
    ```bash
    docker build -t ai-resume-test:local .
-   docker run -p 3000:3000 --env-file .env.local ai-resume-test:local
+   docker run -p 3000:3000 --env-file .env.local -v ./data:/app/data:ro ai-resume-test:local
    ```
 
 7. Open `http://localhost:3000`
 
 
-**Deploy** using the Azure Container Apps steps below (or your preferred host).
+**Deploy** using the AWS EC2 steps below.
 
-## Azure Container Apps 
-This project is designed for Azure Container Apps with ACR. The principle is the same if you want to run it in GCP or AWS.
+## AWS EC2 Deployment
 
-### Prerequisites 
-- Azure CLI: `az`
-- Resource group and Azure Container Registry (ACR) created in a subscription
-- Docker not required if using `az acr build`
+The production stack is: **ECR** (image registry) → **EC2** (host) → **Docker Compose** (app + Nginx).
+Nginx handles all public traffic on port 80 and proxies to the Next.js container on the internal
+Docker network. Port 3000 is never exposed directly to the internet.
 
-### Build and push image
+### EC2 Security Group
+Configure inbound rules on the instance's security group before deploying:
+
+| Port | Source | Purpose |
+|------|--------|---------|
+| 22 | Your IP only | SSH access |
+| 80 | 0.0.0.0/0 | HTTP (Nginx) |
+| 443 | 0.0.0.0/0 | HTTPS (for future SSL) |
+
+**Do not open port 3000** — Nginx proxies to it over the internal Docker network only.
+
+### IAM Instance Profile (one-time)
+Attach an IAM role with the `AmazonEC2ContainerRegistryReadOnly` managed policy to the EC2
+instance. This lets the instance pull from ECR using temporary credentials — no AWS keys are
+stored on disk.
+
 ```bash
-az login
-az account set --subscription "<your-subscription-id>"
-
-az acr login --name "<container-registry>"
-az acr build --registry <container-registry> --image ai-resume-query:latest .
+# Via console: EC2 → Instance → Actions → Security → Modify IAM role
+# Or via CLI:
+aws ec2 associate-iam-instance-profile \
+  --instance-id <instance-id> \
+  --iam-instance-profile Name=<role-with-ecr-readonly>
 ```
 
-### Create environment and app
+### Step 1 — Create ECR repository (one-time, local machine)
 ```bash
-az containerapp env create \
-  --name ai-resume-env \
-  --resource-group <resource-group> \
-  --location <region>
-
-az containerapp create \
-  --name ai-resume-query \
-  --resource-group <resource-group> \
-  --environment ai-resume-env \
-  --image <container-registry>.azurecr.io/ai-resume-query:latest \
-  --target-port 3000 \
-  --ingress external \
-  --registry-server <container-registry> .azurecr.io \
-  --env-vars \
-    LLM_PROVIDER=external \
-    MODEL_NAME=... \
-    RESUME_ID=resume
+aws ecr create-repository \
+  --repository-name ai-resume-query \
+  --region <region>
+# Note the repositoryUri from the output:
+# <account-id>.dkr.ecr.<region>.amazonaws.com/ai-resume-query
 ```
 
-### Add your secrets for LLM API KEY
+### Step 2 — Build and push image (local machine)
 ```bash
-az containerapp secret set \
-  --name ai-resume-query \
-  --resource-group <resource-group> \
-  --secrets llm-api-key=<EXTERNAL_LLM_API_KEY>
+# Authenticate Docker to ECR
+aws ecr get-login-password --region <region> | \
+  docker login --username AWS --password-stdin \
+  <account-id>.dkr.ecr.<region>.amazonaws.com
 
-az containerapp update \
-  --name ai-resume-query \
-  --resource-group <resource-group> \
-  --set-env-vars EXTERNAL_LLM_API_KEY=secretref:llm-api-key
+# Build, tag, push
+docker build -t ai-resume-query:latest .
+
+docker tag ai-resume-query:latest \
+  <account-id>.dkr.ecr.<region>.amazonaws.com/ai-resume-query:latest
+
+docker push \
+  <account-id>.dkr.ecr.<region>.amazonaws.com/ai-resume-query:latest
 ```
+
+### Step 3 — EC2 one-time setup
+```bash
+ssh -i <key.pem> ec2-user@<ec2-public-ip>
+
+# Install Docker (Amazon Linux 2023)
+sudo dnf install -y docker
+sudo systemctl enable --now docker
+sudo usermod -aG docker ec2-user
+# Log out and back in for the group change to take effect
+
+# Install Docker Compose plugin
+sudo mkdir -p /usr/local/lib/docker/cli-plugins
+sudo curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 \
+  -o /usr/local/lib/docker/cli-plugins/docker-compose
+sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+
+# Create app directory
+sudo mkdir -p /opt/ai-resume-query/nginx
+sudo chown ec2-user:ec2-user /opt/ai-resume-query
+```
+
+### Step 4 — Copy config files to EC2
+```bash
+# Edit docker-compose.yml and replace the image placeholder with your ECR URI first, then:
+scp -i <key.pem> docker-compose.yml   ec2-user@<ec2-ip>:/opt/ai-resume-query/
+scp -i <key.pem> nginx/nginx.conf     ec2-user@<ec2-ip>:/opt/ai-resume-query/nginx/
+
+# Create your secrets file from the example template (fill in your real API key), then copy:
+cp .env.production.example .env.production
+# edit .env.production with your CLAUDE_API_KEY
+scp -i <key.pem> .env.production      ec2-user@<ec2-ip>:/opt/ai-resume-query/
+
+# Lock down the secrets file on the instance
+ssh -i <key.pem> ec2-user@<ec2-ip> "chmod 600 /opt/ai-resume-query/.env.production"
+
+# Copy the resume data directory (mounted at runtime — not baked into the image)
+ssh -i <key.pem> ec2-user@<ec2-ip> "mkdir -p /opt/ai-resume-query/data"
+scp -i <key.pem> data/<your-id>.json  ec2-user@<ec2-ip>:/opt/ai-resume-query/data/
+```
+
+### Step 5 — Pull image and start the stack
+```bash
+ssh -i <key.pem> ec2-user@<ec2-ip>
+
+# Authenticate EC2 to ECR (uses IAM instance role — no credentials needed)
+aws ecr get-login-password --region <region> | \
+  docker login --username AWS --password-stdin \
+  <account-id>.dkr.ecr.<region>.amazonaws.com
+
+cd /opt/ai-resume-query
+docker compose pull
+docker compose up -d
+
+# Confirm healthy
+docker ps
+```
+
+The app is now live at `http://<ec2-public-ip>`.
+
+### Subsequent deployments
+```bash
+# 1. Build and push new image (local machine)
+aws ecr get-login-password --region <region> | \
+  docker login --username AWS --password-stdin \
+  <account-id>.dkr.ecr.<region>.amazonaws.com
+
+docker build --platform linux/amd64 -t <account-id>.dkr.ecr.<region>.amazonaws.com/ai-resume-query:latest . && \
+docker push <account-id>.dkr.ecr.<region>.amazonaws.com/ai-resume-query:latest
+
+# 2. Pull and restart on EC2
+ssh -i <key.pem> ec2-user@<ec2-ip> "
+  aws ecr get-login-password --region <region> | \
+    docker login --username AWS --password-stdin \
+    <account-id>.dkr.ecr.<region>.amazonaws.com && \
+  cd /opt/ai-resume-query && \
+  docker compose pull && \
+  docker compose up -d
+"
+```
+
+### Updating resume.json without redeploying
+
+The `data/` directory is bind-mounted from the host into the container — it is **not** baked into the image. To update your resume:
+
+```bash
+# 1. Copy the updated file to the EC2 host
+scp -i <key.pem> data/<your-id>.json ec2-user@<ec2-ip>:/opt/ai-resume-query/data/
+
+# 2. Restart the app container to pick up the change
+ssh -i <key.pem> ec2-user@<ec2-ip> "cd /opt/ai-resume-query && docker compose restart app"
+```
+
+No image rebuild or push required.
+
+### Optional: SSL with Let's Encrypt
+Once you have a domain pointed at an Elastic IP on the instance, add a certbot container to
+`docker-compose.yml` and update `nginx/nginx.conf` to handle HTTPS (port 443) with an
+HTTP → HTTPS redirect.
 
 ### NOTE: Ollama in production
-If you use Ollama in production, keep it private and only allow calls from the backend (e.g., private VNet or internal endpoint).
-But honestly, for $10 you can get enough monthly tokens on openAI you won't need to host your own ollama container and pay for GPU time.
+If you use Ollama in production, keep it private and only allow calls from the backend.
+But honestly, for $10 you can get enough monthly tokens on OpenAI you won't need to host
+your own Ollama container and pay for GPU time.

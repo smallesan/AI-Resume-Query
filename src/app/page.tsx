@@ -49,8 +49,10 @@ export default function Home() {
   return (
     <ChatApp
       experiences={resume.experience}
+      patents={resume.patents ?? []}
       suggestedQuestions={suggestedQuestions}
       resumeName={resume.name}
+      linkedInUrl={resume.links?.find((l) => l.label === "LinkedIn")?.url}
     />
   );
 }

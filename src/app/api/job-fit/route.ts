@@ -40,11 +40,11 @@ function parseRequestBody(body: unknown): JobFitRequest {
 }
 
 function getClientIp(request: NextRequest): string {
+  const realIp = request.headers.get("x-real-ip");
+  if (realIp) return realIp;
   const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) {
-    return forwarded.split(",")[0]?.trim() ?? "unknown";
-  }
-  return request.headers.get("x-real-ip") ?? "unknown";
+  if (forwarded) return forwarded.split(",")[0]?.trim() ?? "unknown";
+  return "unknown";
 }
 
 export async function POST(request: NextRequest) {
@@ -56,7 +56,10 @@ export async function POST(request: NextRequest) {
         message:
           "Please slow down a bit — you’ve reached the request limit. Try again shortly.",
       } satisfies JobFitResponse,
-      { status: 429 },
+      {
+        status: 429,
+        headers: { "Retry-After": String(Math.ceil(rate.retryAfterMs / 1000)) },
+      },
     );
   }
 
@@ -75,12 +78,13 @@ export async function POST(request: NextRequest) {
       "Use only the provided resume data and bullet stories.",
       "Do not fabricate details.",
       "If a requirement is not in the resume data, say 'not found'.",
-      "Be honest, direct, and professional.",
+      "Be honest, direct, and professional, while keeping a positive tone.",
       "Return output in this exact format:",
-      "1) Overall fit: 2-3 sentences.",
+      "1) Overall fit: 2-3 sentences with a clear indication of fit.",
       "2) Pros: bullet list.",
-      "3) Gaps: bullet list.",
+      "3) Gaps: bullet list. Report up to 3 gaps, but only include critical ones. If there are no gaps, say 'none'.",
       "4) Skills matrix: markdown table with columns",
+      "5) A one to two word verdict of recommendation: 'strong hire', 'hire', 'consider', 'no hire'.",
       "Skill | Requirement evidence | Resume alignment | Resume evidence | Notes.",
       "If the job description is long, focus on the 12 most critical skills.",
     ].join(" ");

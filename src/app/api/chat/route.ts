@@ -73,11 +73,11 @@ function parseRequestBody(body: unknown): ChatRequest {
 }
 
 function getClientIp(request: NextRequest): string {
+  const realIp = request.headers.get("x-real-ip");
+  if (realIp) return realIp;
   const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) {
-    return forwarded.split(",")[0]?.trim() ?? "unknown";
-  }
-  return request.headers.get("x-real-ip") ?? "unknown";
+  if (forwarded) return forwarded.split(",")[0]?.trim() ?? "unknown";
+  return "unknown";
 }
 
 export async function POST(request: NextRequest) {
@@ -89,7 +89,10 @@ export async function POST(request: NextRequest) {
         message:
           "Please slow down a bit — you’ve reached the request limit. Try again shortly.",
       } satisfies ChatResponse,
-      { status: 429 },
+      {
+        status: 429,
+        headers: { "Retry-After": String(Math.ceil(rate.retryAfterMs / 1000)) },
+      },
     );
   }
 
@@ -110,7 +113,7 @@ export async function POST(request: NextRequest) {
       "Use only the provided resume data and bullet story context.",
       "Do not fabricate details.",
       "If the answer is not in the data, say you do not know.",
-      "Keep responses concise and professional.",
+      "Keep responses concise and professional, while keeping a positive tone."
     ].join(" ");
 
     const provider = getProvider();

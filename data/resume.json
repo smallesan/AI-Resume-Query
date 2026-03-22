@@ -6,7 +6,7 @@
     "phone": "703-597-9121",
     "location": "Fairfax, VA 22032"
   },
-  "summary": "Technology Executive and Verizon Fellow specializing in the commercialization of Applied Research (GenAI, LLM, Computer Vision). Holder of 33 patents and veteran of a $40M startup exit, with a career defined by scaling global software engineering teams (80+) and delivering web-scale architectures for Fortune 500 environments. Expert at bridging the 'valley of death' between R&D/Applied Research and high-revenue commercial products.",
+  "summary": "Technology Executive and Verizon Fellow with 25+ years of progressive engineering leadership, specializing in technology transformation, cloud-native architecture, and commercialization of Applied Research in emerging technologies. Proven track record scaling global engineering organizations (80+), driving architectural modernization in complex SaaS environments, and delivering web-scale platforms for Fortune 500 enterprises. Holder of 33 patents and veteran of a $40M startup exit, with deep expertise bridging R&D and high-revenue commercial products.",
   "strengths": [
     {
       "topic": "AI and Cloud Innovation",
@@ -47,12 +47,22 @@
       "role": "Founding Engineer",
       "start": "01/2026",
       "end": "Present",
-      "summary": "Currently working on a startup idea, of a personal AI agent that acts as a life coach and assists with digital detox. The agent is designed to provide personalized coaching and support to help users achieve their goals and improve their overall well-being. I am developing the prototype of the AI agent that can be used for startup fund raising and market validation.",
+      "summary": "Currently launching a personal AI platform focused on digital wellbeing and agentic coaching, utilizing a modern AI-native stack and innovative multi-agent architecture.",
       "bullets": [
         {
           "id": "stealth-startup-aiagent",
-          "text": "Currently working on a startup idea, of a personal AI agent that acts as a life coach and assists with digital detox. The agent is designed to provide personalized coaching and support to help users achieve their goals and improve their overall well-being. I am developing the prototype of the AI agent that can be used for startup fund raising and market validation.",
-          "story": "I am developing a personal AI agent platform (on AWS Kubernetes) that acts as a life coach and assists with digital detox. The architecture uses LangChain to orchestrate multiple sub-agents, including a custom-built digital wellbeing assessment engine, a goal-setting module, a daily activities tracker, and a language normalizer. The LLM choice is user-specific and can be switched between four leading LLM providers."
+          "text": "Currently launching a personal AI platform focused on digital wellbeing and agentic coaching, utilizing a modern AI-native stack and innovative multi-agent architecture.",
+          "story": "Currently working on launching a startup, building a personal AI agent that acts as a life coach and assists with digital detox and real-time AI-driven interventions. I am applying agentic teams to create a prototype to use for fundraising and market validation."
+        },
+        {
+          "id": "stealth-startup-platform",
+          "text": "Orchestrating sub-agents (goal-setting, wellbeing assessment) using LangGraph to create personalized, highly effective coaching experiences.",
+          "story": "The architecture uses LangGraph to orchestrate specialized sub-agents, a custom-built digital wellbeing assessment engine, a goal-setting agent, an activities tracker, and a language normalizer. The LLM choice is user-specific and can be switched between four leading LLM providers."
+        },
+        {
+          "id": "stealth-startup-aidevelopment",
+          "text": "Implementing agentic teams to accelerate market validation and prototype delivery, emphasizing reliable and modular systems for rapid iteration.",
+          "story": "The multi-agent development approach is integrated with github workflows for rapid iteration from ideation to prototype delivery, while allowing human-in-the-loop oversight and control."
         }
       ]
     },
@@ -66,36 +76,47 @@
         {
           "id": "enterprise-ml-architecture",
           "text": "Unlocked a $15B market opportunity by architecting and implementing Verizon's UAV connectivity platform; engineered a hybrid CPU/GPU backend for sub-second flight path optimization at scale, while enabling customers to meet the most recent FAA regulations on BvLOS flights.",
-          "story": "New FAA regulations for BVLoS (Beyond Visual Line of Sight) opened a new market opportunity for UAV  (drones, etc) cellular connectivity. UAV communication over cellular connectivty has a line-of-sight interference problem that does not exist in normal terrestrial cellular communication. I led the architecture and implementation of a ML algorithm that utlizes Verizon's proprietary data to predict connection quality along a flight path, and Verizon's UAV connectivity platform, which included a hybrid CPU/GPU backend for flight path optimization. I managed a cross-functional team of 5 engineers for implementation and collaborated with 3 different internal organizations to securely access the sensitive data. This platform enabled customers to meet FAA regulations for BvLOS flights and unlocked a $15B market opportunity for Verizon in the UAV space. I deployed the solution in an OpenShift environment, conforming with the existing MLOps CI/CD pipelines and security protocols for the Verizon product cloud (Artifactory, Jenkins, Blackduck, SonarQube and Twistlock)."
+          "story": "New FAA regulations for BVLoS (Beyond Visual Line of Sight) opened a new market opportunity for UAV  (drones, etc) cellular connectivity. UAV communication over cellular connectivty has a line-of-sight interference problem that does not exist in normal terrestrial cellular communication. I led the architecture and implementation of a ML algorithm that utilizes Verizon's proprietary data to predict connection quality along a flight path, and Verizon's UAV connectivity platform, which included a hybrid CPU/GPU backend for flight path optimization. I built a large scale data ingestion pipeline connecting to multiple data sources with different data governance rules. \nI managed a cross-functional team of 5 engineers for implementation and collaborated with 3 different internal organizations to securely access the sensitive data. This platform enabled customers to meet FAA regulations for BvLOS flights and unlocked a $15B market opportunity for Verizon in the UAV space. I deployed the solution in an OpenShift environment, conforming with the existing MLOps CI/CD pipelines and security protocols for the Verizon product cloud (Artifactory, Jenkins, Blackduck, SonarQube and Twistlock)."
         },
         {
           "id": "llm-product-initiative",
           "text": "Led the engineering of a B2C RAG-LLM platform. Built a secure, scalable architecture capable of ingesting and querying private data for tens of millions of customers.",
-          "story": "I led the architecture and engineering of a B2C RAG-LLM platform that can securely ingest and query private data for tens of millions of verizon customers and be utlized for multiple RAG use cases. Working with a team of engineers, I designed the LLM inference architecture based on vLLM and the RAG platform was multi-tenant for different uses cases and supported choices of vector databases and LLMs. The architecture utlized MCP to retrive chunks from appropiate vector databases. The RAG architecture was designed with a multi-agent approach, with specialized agents for planning, data extraction, use case specific guardrails and human-in-the-loop capabilities all orchestrated through LangGraph framework. The guard rails were implemented using NeMo for user inputs, retrieval chunks and output. I deployed the solution in an OpenShift environment, conforming with the existing MLOps CI/CD pipelines and security protocols for the Verizon product cloud (Artifactory, Jenkins, Blackduck, SonarQube and Twistlock).\nI collaborated closely with product management to define the product requirements and worked with the security team to ensure compliance with data privacy regulations. This initiative resulted in an internal platform that can be used for multiple RAG use cases across the company, and has the potential to generate significant revenue by enabling personalized AI experiences for Verizon customers."
+          "story": "I led the architecture and engineering of a B2C RAG-LLM platform that can securely ingest and query private data for tens of millions of verizon customers and be utilized for multiple RAG use cases. Working with a team of engineers, I designed the LLM inference architecture based on vLLM and the platform was multi-tenant for different uses cases and supported choices of vector databases and LLMs. The architecture utilized MCP to retrieve chunks from appropriate vector databases. The RAG architecture was designed with a multi-agent approach, with specialized agents for planning, data extraction, use case specific guardrails and human-in-the-loop escape hatches, all orchestrated through a LangGraph framework. The guard rails were implemented using NeMo for user inputs, retrieval chunks and output. I designed in an observability layer that tracks across multiple agents, and providing prompt provenance. \nI deployed the solution in an OpenShift environment, conforming with the existing MLOps CI/CD pipelines and security protocols for the Verizon product cloud (Artifactory, Jenkins, Blackduck, SonarQube and Twistlock).\nI collaborated closely with product management to define the product requirements and worked with the security team to ensure compliance with data privacy regulations. This initiative resulted in an internal platform that can be used for multiple RAG use cases across the company, and has the potential to generate significant revenue by enabling personalized AI experiences for Verizon customers."
+        },
+        {
+          "id": "voiceai-product-initiative",
+          "text": "Drove end-to-end architecture of a scalable, generative AI platform providing in-network, real-time fraud detection, call transcription, and summarization services for voice calls on a cellular network.",
+          "story": "I led the architecture and coordinated the development of a Voice AI platform that enabled multiple genAI use cases for voice calls on a cellular network, including real-time fraud detection, call transcription, and summarization services. The architecture utilized NVIDIA Riva for scalable voice-to-text conversion followed by a parallel services pipeline for multiple genAI features. I colloborated with the models team to develop custom deep learning models for early low-cost fraud detection and fine-tuned LLMs for more nuanced detections. \nI worked closely with product management to refine the use cases and worked with the security team to ensure compliance with data privacy regulations. The platform's scalable architecture allows for the addition of new AI-driven features in the future, positioning Verizon as a leader in innovative voice services."
         },
         {
           "id": "industry-4-innovation",
-          "text": "Spearheaded the R&D strategy for complex robotic operations in large-scale factories. Solved a previously unsolved domain challenge by designing algorithms that normalize indoor location data across diverse robot fleets, predicting path congestion and connectivity anomalies."
+          "text": "Spearheaded the R&D strategy for complex robotic operations in large-scale factories. Solved a previously unsolved domain challenge by designing algorithms that normalize indoor location data across diverse robot fleets, predicting path congestion and connectivity anomalies.",
+          "story": "I led the R&D strategy for complex robotic operations in large-scale factories, focusing on solving the challenge of normalizing indoor location data across diverse robot fleets. I designed algorithms that utilize sensor fusion and machine learning to predict path congestion and connectivity anomalies, enabling seamless coordination among heterogeneous robot fleets. I built the data lake architecture to ingest multi-modal sensor data and location data from robot fleets to feed the ML model. This innovation significantly improved operational efficiency and reduced downtime in large factory environments, demonstrating the potential of advanced robotics in Industry 4.0 applications. \nI collaborated with cross-functional teams, including robotics engineers, data scientists, and customer account teams, to implement and validate the solution for real-world environments. This initiative not only enhanced Verizon's capabilities in the industrial IoT space but also positioned the company as a leader in providing innovative solutions for smart factories and automated logistics."
         },
         {
           "id": "healthcare-ai",
-          "text": "Pioneered a multi-modal 'Aging-in-Place' platform integrating Brain-Computer Interfaces (BCI) and robotic sensors (RGBD, IR, Acoustic), utilizing Differential Privacy and Edge-encryption to ensure HIPAA-level security. Led a team of 15, including researchers from a leading university, and designed custom deep learning models for detecting activities of daily living."
+          "text": "Pioneered a multi-modal 'Aging-in-Place' platform integrating Brain-Computer Interfaces (BCI) and robotic sensors (RGBD, IR, Acoustic), utilizing Differential Privacy and Edge-encryption to ensure HIPAA-level security. Led a team of 15, including researchers from a leading university, and designed custom deep learning models for detecting activities of daily living.",
+          "story": "I led the development of a multi-modal 'Aging-in-Place' platform that integrates Brain-Computer Interfaces (BCI) and robotic sensors (RGBD, IR, Acoustic) to monitor and assist elderly individuals in their homes. The platform utilizes Differential Privacy and Edge-encryption to ensure HIPAA-level security for sensitive health data. I managed a team of 15 engineers and researchers, including collaborations with a leading university, to design custom deep learning models for detecting activities of daily living (ADLs) such as eating, sleeping, and medication adherence. I tuned the custom models for edge inferencing and optimal usage of cloud and connectivity resources. This innovative solution has the potential to improve the quality of life for elderly individuals by enabling early detection of health issues and providing timely interventions, while also addressing critical privacy concerns in healthcare AI applications.  \nThis initiative not only advanced Verizon's capabilities in the healthcare AI space but also demonstrated the company's commitment to leveraging technology for social good."
         },
         {
           "id": "ar-vr-infrastructure",
-          "text": "Standardized the XR Service Architecture across the enterprise, reducing application time-to-market by 40% through reusable MEC-optimized (Mobile Edge Compute) modules."
+          "text": "Standardized the XR Service Architecture across the enterprise, reducing application time-to-market by 40% through reusable MEC-optimized (Mobile Edge Compute) modules.",
+          "story":"I led a team of subject matter experts to standardize the XR Service Architecture across the enterprise, focusing on reducing application time-to-market for AR/VR solutions. I designed reusable MEC-optimized (Mobile Edge Compute) modules that can be easily integrated into various AR/VR applications, enabling low-latency processing and enhanced user experiences. This standardization effort resulted in a 40% reduction in application development time, allowing Verizon to rapidly deploy innovative AR/VR solutions across multiple industries, including retail, entertainment, and remote collaboration. \nI collaborated closely with product management and engineering teams to ensure the architecture met the needs of different use cases while maintaining scalability and performance."
         },
         {
           "id": "computer-vision-strategy",
-          "text": "Led a cross-functional initiative to unify Verizon's computer vision efforts. Designed an API-driven, framework-agnostic inferencing engine, successfully validating the architecture on AWS and demonstrating scalable cloud inference infrastructure."
+          "text": "Led a cross-functional initiative to unify Verizon's computer vision efforts. Designed an API-driven, framework-agnostic inferencing engine, successfully validating the architecture on AWS and demonstrating scalable cloud inference infrastructure.",
+          "story": "I led a cross-functional initiative to unify Verizon's computer vision efforts across multiple business units. I designed an API-driven, framework-agnostic inferencing engine that can support various computer vision models and use cases. I built an end-to-end CV platform that supported scalable model training on PyTorch and Tensorflow frameworks, deployment on the inference cloud, with built-in observability layer for model performance and hardware utilization. I successfully validated the architecture on AWS, demonstrating scalable cloud inference infrastructure that can handle high volumes of data and provide low-latency responses. This initiative not only streamlined Verizon's computer vision development but also enabled faster deployment of CV solutions across the enterprise, driving innovation in areas such as smart cities, retail analytics, and public safety."
         },
         {
           "id": "public-safety-technology",
-          "text": "Secured 2 patents for novel ML algorithms that utilize smartphone sensors to determine variable floor heights, solving a critical vertical location accuracy challenge for emergency responders. Validated the solution through demonstrations at key industry forums."
+          "text": "Secured 2 patents for novel ML algorithms that utilize smartphone sensors to determine variable floor heights, solving a critical vertical location accuracy challenge for emergency responders. Validated the solution through demonstrations at key industry forums.",
+          "story": "I developed novel machine learning algorithms that utilize smartphone sensors to determine variable floor heights, addressing a critical vertical location accuracy challenge for emergency responders in multi-story buildings. This technology significantly enhances the ability of first responders to locate individuals in need of assistance during emergencies. I used a crowd-sourcing technique to predict variable floor heights in high-rise structures. I mentored of team of 4 junior engineers during this project. I secured 2 patents for this innovation and validated the solution through demonstrations at key industry forums, including public safety conferences and technology expos. This work not only contributes to improving emergency response capabilities but also showcases Verizon's commitment to leveraging technology for public safety advancements."
         },
         {
           "id": "thought-leadership-verizon",
-          "text": "Presented at The Web Conference 2020 (Computer Vision for IoT) and Tech Pulse 2020 (AI Inference Platform). Actively advised four startup cohorts in Verizon's 'Forward For Good' accelerator on Computer Vision, MEC and 5G product roadmaps. Won internal hackathons two years in a row."
+          "text": "Presented at The Web Conference 2020 (Computer Vision for IoT) and Tech Pulse 2020 (AI Inference Platform). Actively advised four startup cohorts in Verizon's 'Forward For Good' accelerator on their product roadmaps. Led winning internal hackathon teams two years in a row.",
+          "story": "I have been an active thought leader within Verizon, presenting at major industry conferences such as The Web Conference 2020 on Computer Vision for IoT and Tech Pulse 2020 on AI Inference Platforms. I have also served as a mentor and advisor for four startup cohorts in Verizon's accelerator program, providing guidance on their product roadmaps and helping them navigate the challenges of bringing innovative solutions to market. Additionally, I led teams that won Verizon's internal hackathon for two consecutive years, demonstrating my ability to foster creativity and drive innovation within the organization. These activities have not only contributed to my personal growth as a technology leader but have also helped to elevate Verizon's profile in the tech community and foster a culture of innovation within the company."
         }
       ]
     },
@@ -108,27 +129,33 @@
       "bullets": [
         {
           "id": "revenue-retention-ai",
-          "text": "Designed and deployed ML models for the VZ Cloud product to predict user churn risk, directly informing retention strategies."
+          "text": "Designed and deployed ML models for the VZ Cloud product to predict user churn risk, directly influencing retention strategies.",
+          "story": "I designed and deployed machine learning models for the Verizon Cloud product to predict user churn risk. I built a data pipeline to ingest and process customer usage data, and developed predictive models that identify patterns indicative of potential churn. The insights generated from these models directly influenced retention strategies, allowing the product team to proactively engage at-risk customers with targeted offers and interventions."
         },
         {
           "id": "cost-reduction-cv",
-          "text": "Realized $2M in annual OPEX savings by replacing manual network site selection with a Computer Vision-driven automation engine using satellite and street-view imagery. Pioneered unique algorithms for image stitching and object height detections."
+          "text": "Realized $2M in annual OPEX savings by replacing manual network site selection with a Computer Vision-driven automation engine using satellite and street-view imagery. Pioneered unique algorithms for image stitching and object height detections.",
+          "story": "I led the development of a Computer Vision-driven automation engine that replaced the manual process of network site selection for Verizon. By utilizing satellite and street-view imagery, I designed unique algorithms for image stitching and object height detection to analyze potential sites for network infrastructure deployment. I trained custom computer vision models to identify and classify different types of infrastructure and obstacles, and tuned the models for optimal performance on NVIDIA GPUs. \nThis innovation not only improved the accuracy and efficiency of site selection but also resulted in $2M in annual OPEX savings for Verizon by reducing the need for costly manual surveys and enabling faster decision-making."
         },
         {
           "id": "smart-cities",
-          "text": "Engineered accessibility solutions that utilize satellite and street imagery to identify parking spots and curb cuts for handicap driving route services."
+          "text": "Engineered accessibility solutions that utilize satellite and street imagery to identify parking spots and curb cuts for handicap driving route services.",
+          "story":"I engineered accessibility solutions for smart cities by utilizing satellite and street imagery to identify parking spots and curb cuts for handicap driving route services. I developed computer vision models that analyze imagery to detect and classify accessible parking spaces and curb cuts, providing critical information for navigation services catering to individuals with disabilities. This solution enhances the mobility and independence of users by enabling more accurate and efficient route planning that takes into account accessibility needs."
         },
         {
           "id": "strategic-partnerships-target",
-          "text": "Secured a Statement of Work (SOW) with Target after winning an exclusive hackathon. Presented the resulting Computer Vision smart-cart solution directly to Target's Board of Directors."
+          "text": "Secured a Statement of Work (SOW) with Target after winning an exclusive hackathon. Presented the resulting Computer Vision smart-cart solution directly to Target's Board of Directors.",
+          "story": "I led a team that won an exclusive hackathon hosted by Target, where we developed a Computer Vision smart-cart solution designed to enhance the in-store shopping experience. The solution utilized off-the-shelf cameras and a custom trained model running on raspberry pi to enable features such as automatic item recognition and real-time inventory tracking. Our innovative approach and successful demonstration of the prototype directly led to securing a Statement of Work (SOW) with Target. I had the opportunity to present our solution directly to Target's Board of Directors, showcasing the potential impact of our technology on their retail operations and customer experience."
         },
         {
           "id": "next-gen-video",
-          "text": "Architected a Deep Learning computer vision solution to deliver real-time e-commerce experiences overlaid on linear TV and on-demand content, leading to multiple new product innovations."
+          "text": "Architected a Deep Learning computer vision solution to deliver real-time e-commerce experiences overlaid on linear TV and on-demand content, leading to multiple new product innovations.",
+          "story": "I led the development of a cutting-edge computer vision solution that revolutionized the way e-commerce experiences are delivered on linear TV and on-demand content. This innovation resulted in multiple new product launches and significantly enhanced user engagement. The architecture utilized deep learning models for real-time object recognition and tracking, enabling dynamic overlay of e-commerce content based on the context of the video. I built an inferencing cloud for scalable video processing for hundreds of real-time video streams. I performed CUDA level kernel optimizations on NVIDIA GPUs for custom model training and inference tuning. \nI collaborated closely with product management to define the use cases and worked with the engineering team to implement the solution in a scalable manner. This initiative not only drove new revenue streams but also positioned Verizon as a leader in next-gen video experiences."
         },
         {
           "id": "sdn-architecture",
-          "text": "Led the evaluation of CSCF implementations for micro-services applicability, authoring the southbound interface RFI and demonstrating zero-touch provisioning for edge deployment."
+          "text": "Led the evaluation of CSCF implementations for micro-services applicability, authoring the southbound interface RFI and demonstrating zero-touch provisioning for edge deployment.",
+          "story": "I led the evaluation of Call Session Control Function (CSCF) implementations for their applicability to a micro-services architecture. I co-authored the Request for Information (RFI) for the southbound interface, outlining the requirements and expectations for integration with existing network infrastructure. I also demonstrated zero-touch provisioning for edge deployment, showcasing the ability to rapidly deploy and manage network functions at the edge without manual intervention. This work was critical in advancing Verizon's Software-Defined Networking (SDN) strategy and enabling more agile and scalable network architectures."
         }
       ]
     },
@@ -213,7 +240,7 @@
         },
         {
           "id": "genband-reliability-engineering",
-          "text": "Established a new engineering discipline to address architectural debt, directly achieving carrier-grade (5-9s) reliability. Led high-impact architectural changes while sustaining product development schedules for 400+ customers. Led the Systems Integration Team to redefine testing methodologies, emphasizing automated load and stress testing for high-volume customer deployments."
+          "text": "Established a new engineering discipline (SRE) to address architectural debt, directly achieving carrier-grade (5-9s) reliability. Led high-impact architectural changes while sustaining product development schedules for 400+ customers. Led the Systems Integration Team to redefine testing methodologies, emphasizing automated load and stress testing for high-volume customer deployments."
         },
         {
           "id": "genband-security-strategy",
@@ -250,10 +277,22 @@
       "Large Language Models (LLM)",
       "Retrieval Augmented Generation (RAG)",
       "LangChain",
+      "LangGraph",
+      "NeMo guardrails",
       "Computer Vision",
       "Super Resolution",
-      "Deep Learning models",
-      "Statistical ML"
+      "Deep Learning model training",
+      "Statistical ML",
+      "MLOps",
+      "Context Management",
+      "Prompt Engineering",
+      "Hardware-aware AI",
+      "Inference optimization and tuning",
+      "Artifactory",
+      "Jenkins",
+      "Blackduck",
+      "SonarQube",
+      "Twistlock"
     ],
     "cloud_scale": [
       "Kubernetes",

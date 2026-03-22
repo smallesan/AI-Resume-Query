@@ -39,6 +39,13 @@ export type ResumeExperience = {
   bullets: ResumeBullet[];
 };
 
+export type ResumePatent = {
+  title: string;
+  number: string;
+  year: string;
+  description: string;
+};
+
 export type ResumeData = {
   name: string;
   title: string;
@@ -49,4 +56,6 @@ export type ResumeData = {
   summary: string;
   experience: ResumeExperience[];
   suggestedQuestions: string[];
+  patents?: ResumePatent[];
+  links?: Array<{ label: string; url: string }>;
 };

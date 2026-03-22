@@ -8,6 +8,7 @@ type RateLimitEntry = {
 };
 
 const store = new Map<string, RateLimitEntry>();
+const MAX_STORE_SIZE = 10_000;
 
 export function rateLimit(key: string, options: RateLimitOptions): {
   ok: boolean;
@@ -16,6 +17,14 @@ export function rateLimit(key: string, options: RateLimitOptions): {
 } {
   const now = Date.now();
   const windowStart = now - options.intervalMs;
+
+  // Evict all expired entries when the store grows large (e.g. under a probe attack)
+  if (store.size > MAX_STORE_SIZE) {
+    for (const [k, v] of store) {
+      if (!v.timestamps.some((ts) => ts > windowStart)) store.delete(k);
+    }
+  }
+
   const entry = store.get(key) ?? { timestamps: [] };
 
   entry.timestamps = entry.timestamps.filter((ts) => ts > windowStart);
